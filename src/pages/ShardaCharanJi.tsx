@@ -1,5 +1,6 @@
 import PravachanList from '../components/PravachanList';
 import { shardaCharanJiPravachans } from '../data/pravachans';
+import shardaCharanJiImage from '../assets/2017_Pitaji_Photo_Final_NoLayers_24x36_300dpi_DateCorrected.jpg';
 
 export default function ShardaCharanJi() {
   return (
@@ -19,7 +20,7 @@ export default function ShardaCharanJi() {
             <div className="sticky top-24">
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                 <img
-                  src="/2017_pitaji_photo_final_nolayers_24x36_300dpi_datecorrected%20copy.jpg"
+                  src={shardaCharanJiImage}
                   alt="Param Guru Shri Sharda Charan Ji Maharaj"
                   className="w-full h-auto"
                 />

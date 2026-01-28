@@ -1,5 +1,6 @@
 import PravachanList from '../components/PravachanList';
 import { satyaPrakashJiPravachans } from '../data/pravachans';
+import satyaPrakashJiImage from '../assets/PapajiPrasad_2017_12x18_600dpi.jpg';
 
 export default function SatyaPrakashJi() {
   return (
@@ -19,7 +20,7 @@ export default function SatyaPrakashJi() {
             <div className="sticky top-24">
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                 <img
-                  src="/papajiprasad_2017_12x18_600dpi%20copy.jpg"
+                  src={satyaPrakashJiImage}
                   alt="Param Guru Shri Satya Prakash Ji Maharaj"
                   className="w-full h-auto"
                 />

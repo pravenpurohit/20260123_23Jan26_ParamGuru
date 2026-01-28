@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import ramChandraJiImage from '../assets/paramgurushriramchandraji.jpeg';
 import chaturbhujSahaiJiImage from '../assets/paramgurushrichaturbhujsahaiji.jpeg';
+import shardaCharanJiImage from '../assets/2017_Pitaji_Photo_Final_NoLayers_24x36_300dpi_DateCorrected.jpg';
+import satyaPrakashJiImage from '../assets/PapajiPrasad_2017_12x18_600dpi.jpg';
 
 const lineageData = [
   {
@@ -41,7 +43,7 @@ When he established his branch of the Satsang, he did not name it after himself.
 
 He represents the sacred Link that connects the source in Mathura to the stream that flows through Bikaner and beyond. His pravachans (discourses) continue to guide seekers on the path of devotion and surrender.`,
     link: "/sharda-charan-ji",
-    image: "../assets/2017_pitaji_photo_final_nolayers_24x36_300dpi_datecorrected%20copy.jpg",
+    image: shardaCharanJiImage,
   },
   {
     name: "Param Guru Shri Satya Prakash Ji Maharaj",
@@ -54,7 +56,7 @@ His pravachans are not mere lectures but transmissions of the divine energy he r
 
 This very website was created on his orders, given while he was in his physical form. He personally chose the name "Param Guru" for this digital sanctuary. Though he left his physical body in 2002, his spiritual presence continues to guide sincere seekers through his recorded teachings and the living tradition he established.`,
     link: "/satya-prakash-ji",
-    image: "../assets/papajiprasad_2017_12x18_600dpi%20copy.jpg",
+    image: satyaPrakashJiImage,
   },
 ];
 

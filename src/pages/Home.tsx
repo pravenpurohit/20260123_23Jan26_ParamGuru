@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Calendar, MapPin, ArrowRight, Play, Users, BookOpen, Mic, CalendarDays } from 'lucide-react';
 import { upcomingEvents } from '../data/pravachans';
+import shardaCharanJiImage from '../assets/2017_Pitaji_Photo_Final_NoLayers_24x36_300dpi_DateCorrected.jpg';
+import satyaPrakashJiImage from '../assets/PapajiPrasad_2017_12x18_600dpi.jpg';
 
 const exploreLinks = [
   {
@@ -53,7 +55,7 @@ export default function Home() {
             <Link to="/sharda-charan-ji" className="group">
               <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1">
                 <img
-                  src="../assets/2017_Pitaji_Photo_Final_NoLayers_24x36_300dpi_DateCorrected.jpg"
+                  src={shardaCharanJiImage}
                   alt="Param Guru Shri Sharda Charan Ji Maharaj"
                   className="w-full h-auto object-cover"
                 />
@@ -69,7 +71,7 @@ export default function Home() {
             <Link to="/satya-prakash-ji" className="group">
               <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1">
                 <img
-                  src="../assets/PapajiPrasad_2017_12x18_600dpi.jpg"
+                  src={satyaPrakashJiImage}
                   alt="Param Guru Shri Satya Prakash Ji Maharaj"
                   className="w-full h-auto object-cover"
                 />

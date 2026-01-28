@@ -23,7 +23,9 @@ export default function Header() {
     i18n.changeLanguage(newLang);
   };
 
-  const switchToLang = i18n.language === 'hi' ? 'English' : 'हिंदी';
+  const isHindi = i18n.language === 'hi';
+  const switchToLang = isHindi ? 'English' : 'हिंदी';
+  const switchToLangShort = isHindi ? 'EN' : 'हि';
 
   return (
     <header className="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900 shadow-lg sticky top-0 z-50">
@@ -46,7 +48,7 @@ export default function Header() {
                 className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
                   location.pathname === item.href
                     ? 'bg-amber-700 text-white'
-                    : 'text-amber-100 hover:bg-amber-700/50 hover:text-white'
+                    : 'text-amber-100 hover:bg-amber-700 hover:text-white'
                 }`}
               >
                 {item.name}
@@ -54,28 +56,31 @@ export default function Header() {
             ))}
             <button
               onClick={toggleLanguage}
-              className="ml-4 px-4 py-2.5 text-base font-semibold rounded-lg transition-all duration-200 bg-amber-600 text-white hover:bg-amber-500 flex items-center gap-2 border-2 border-amber-400 shadow-md hover:shadow-lg"
+              type="button"
+              className="ml-4 inline-flex items-center gap-2 px-5 py-2.5 text-base font-bold rounded-lg bg-white text-amber-900 hover:bg-amber-100 active:bg-amber-200 border-2 border-amber-300 shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-amber-800"
               aria-label={`Switch to ${switchToLang}`}
             >
-              <Globe className="h-5 w-5" />
-              <span>{switchToLang}</span>
+              <Globe className="h-5 w-5 flex-shrink-0" strokeWidth={2.5} />
+              <span className="whitespace-nowrap">{switchToLang}</span>
             </button>
           </div>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-3 md:hidden">
             <button
               onClick={toggleLanguage}
-              className="text-white bg-amber-600 hover:bg-amber-500 p-2.5 flex items-center space-x-1.5 border-2 border-amber-400 rounded-lg shadow-md"
+              type="button"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-bold rounded-lg bg-white text-amber-900 hover:bg-amber-100 active:bg-amber-200 border-2 border-amber-300 shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-300"
               aria-label={`Switch to ${switchToLang}`}
             >
-              <Globe className="h-5 w-5" />
-              <span className="text-sm font-semibold">{i18n.language === 'hi' ? 'EN' : 'हि'}</span>
+              <Globe className="h-4 w-4 flex-shrink-0" strokeWidth={2.5} />
+              <span>{switchToLangShort}</span>
             </button>
             <button
               type="button"
-              className="text-amber-100 hover:text-white p-2 flex items-center space-x-1"
+              className="text-amber-100 hover:text-white p-2 flex items-center space-x-1 focus:outline-none focus:ring-2 focus:ring-amber-300 rounded-md"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
             >
               <span className="text-sm font-medium">{t('nav.menu')}</span>
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
@@ -84,7 +89,7 @@ export default function Header() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-amber-700/50 pt-2">
+          <div className="md:hidden pb-4 border-t border-amber-700 pt-2">
             <div className="flex flex-col space-y-1">
               {navigation.map((item) => (
                 <Link
@@ -93,7 +98,7 @@ export default function Header() {
                   className={`block px-4 py-3 text-base font-medium rounded-md ${
                     location.pathname === item.href
                       ? 'bg-amber-700 text-white'
-                      : 'text-amber-100 hover:bg-amber-700/50'
+                      : 'text-amber-100 hover:bg-amber-700'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >

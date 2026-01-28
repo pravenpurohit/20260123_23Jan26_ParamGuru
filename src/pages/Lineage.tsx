@@ -32,7 +32,7 @@ His profound teaching, "The more spiritual a person is, the more human they are,
   },
   {
     name: "Param Guru Shri Sharda Charan Ji Maharaj",
-    title: "The Light of God",
+    title: "The Home of Truth and Englightenment - Satya Sadan",
     years: "1910 - 1983",
     location: "Agra, Uttar Pradesh",
     description: `Param Guru Shri Sharda Charan Ji Maharaj exemplifies the profound bond between Master and Disciple. A resident of Agra, his devotion to Shri Chaturbhuj Sahai Ji was so complete that he effaced his own identity in service of his Guru.
@@ -41,7 +41,7 @@ When he established his branch of the Satsang, he did not name it after himself.
 
 He represents the sacred Link that connects the source in Mathura to the stream that flows through Bikaner and beyond. His pravachans (discourses) continue to guide seekers on the path of devotion and surrender.`,
     link: "/sharda-charan-ji",
-    image: "/2017_pitaji_photo_final_nolayers_24x36_300dpi_datecorrected%20copy.jpg",
+    image: "../assets/2017_pitaji_photo_final_nolayers_24x36_300dpi_datecorrected%20copy.jpg",
   },
   {
     name: "Param Guru Shri Satya Prakash Ji Maharaj",
@@ -54,7 +54,7 @@ His pravachans are not mere lectures but transmissions of the divine energy he r
 
 This very website was created on his orders, given while he was in his physical form. He personally chose the name "Param Guru" for this digital sanctuary. Though he left his physical body in 2002, his spiritual presence continues to guide sincere seekers through his recorded teachings and the living tradition he established.`,
     link: "/satya-prakash-ji",
-    image: "/papajiprasad_2017_12x18_600dpi%20copy.jpg",
+    image: "../assets/papajiprasad_2017_12x18_600dpi%20copy.jpg",
   },
 ];
 

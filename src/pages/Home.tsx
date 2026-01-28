@@ -53,7 +53,7 @@ export default function Home() {
             <Link to="/sharda-charan-ji" className="group">
               <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1">
                 <img
-                  src="/2017_pitaji_photo_final_nolayers_24x36_300dpi_datecorrected%20copy.jpg"
+                  src="../assets/2017_Pitaji_Photo_Final_NoLayers_24x36_300dpi_DateCorrected.jpg"
                   alt="Param Guru Shri Sharda Charan Ji Maharaj"
                   className="w-full h-auto object-cover"
                 />
@@ -69,7 +69,7 @@ export default function Home() {
             <Link to="/satya-prakash-ji" className="group">
               <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1">
                 <img
-                  src="/papajiprasad_2017_12x18_600dpi%20copy.jpg"
+                  src="../assets/PapajiPrasad_2017_12x18_600dpi.jpg"
                   alt="Param Guru Shri Satya Prakash Ji Maharaj"
                   className="w-full h-auto object-cover"
                 />

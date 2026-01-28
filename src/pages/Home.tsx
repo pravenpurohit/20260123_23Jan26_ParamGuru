@@ -5,7 +5,7 @@ import { upcomingEvents } from '../data/pravachans';
 const exploreLinks = [
   {
     title: 'Spiritual Lineage',
-    description: 'Discover the sacred succession of Gurus from the Radhasoami tradition',
+    description: 'Discover the sacred succession of Gurus from the Ramashram Satsang Silsila',
     href: '/lineage',
     icon: Users,
   },
@@ -22,7 +22,7 @@ const exploreLinks = [
     icon: BookOpen,
   },
   {
-    title: 'Satsang Programs',
+    title: 'Satsang Programs / Meditation Camps',
     description: 'Find upcoming meditation camps and spiritual gatherings',
     href: '/programs',
     icon: CalendarDays,

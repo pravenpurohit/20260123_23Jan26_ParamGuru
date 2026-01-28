@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, User } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import ramChandraJiImage from '../assets/paramgurushriramchandraji.jpeg';
-import chaturbhujSahaiJiImage from '../assets/paramgurushrichaturbhujsahaiji.jpeg';
 import shardaCharanJiImage from '../assets/2017_Pitaji_Photo_Final_NoLayers_24x36_300dpi_DateCorrected.jpg';
 import satyaPrakashJiImage from '../assets/PapajiPrasad_2017_12x18_600dpi.jpg';
 
@@ -17,7 +15,7 @@ export default function Lineage() {
       location: t('lineage.ramChandraJiLocation'),
       description: t('lineage.ramChandraJiDesc'),
       link: null,
-      image: ramChandraJiImage,
+      image: null,
     },
     {
       name: t('lineage.chaturbhujJiName'),
@@ -26,7 +24,7 @@ export default function Lineage() {
       location: t('lineage.chaturbhujJiLocation'),
       description: t('lineage.chaturbhujJiDesc'),
       link: null,
-      image: chaturbhujSahaiJiImage,
+      image: null,
     },
     {
       name: t('lineage.shardaCharanJiName'),
@@ -80,13 +78,20 @@ export default function Lineage() {
                 <div className="hidden md:block absolute left-6 w-4 h-4 bg-amber-500 rounded-full border-4 border-white shadow" />
 
                 <div className="md:ml-16 bg-white rounded-2xl shadow-lg overflow-hidden">
-                  {guru.image && (
+                  {guru.image ? (
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
                         src={guru.image}
                         alt={guru.name}
                         className="w-full h-full object-cover object-top"
                       />
+                    </div>
+                  ) : (
+                    <div className="aspect-[4/3] bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center">
+                      <div className="text-center">
+                        <User className="h-24 w-24 text-amber-400 mx-auto mb-4" />
+                        <p className="text-amber-600 font-medium text-sm">{guru.years}</p>
+                      </div>
                     </div>
                   )}
 

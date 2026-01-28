@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface TeachingSection {
   title: string;
@@ -189,16 +190,17 @@ May Guruji grant us faith and fortitude to tread the path shown by him.`
 
 export default function Teachings() {
   const [expandedSection, setExpandedSection] = useState<number | null>(0);
+  const { t } = useTranslation();
 
   return (
     <div className="bg-amber-50 min-h-screen">
       <div className="bg-gradient-to-r from-amber-800 to-amber-900 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-serif font-bold text-white text-center mb-4">
-            The Sacred Teachings
+            {t('teachings.pageTitle')}
           </h1>
           <p className="text-amber-200 text-center max-w-2xl mx-auto">
-            Understanding Sadhna - The Path of Spiritual Discipline
+            {t('teachings.pageSubtitle')}
           </p>
         </div>
       </div>
@@ -206,10 +208,7 @@ export default function Teachings() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-12">
           <p className="text-amber-800 leading-relaxed text-lg">
-            The following teachings explain the nature of spiritual practice (Sadhna),
-            the relationship between Guru and disciple, and the path to liberation.
-            These timeless principles guide seekers on their journey from the confusion
-            of worldly existence to the peace of Self-realization.
+            {t('teachings.introText')}
           </p>
         </div>
 
@@ -247,10 +246,10 @@ export default function Teachings() {
 
         <div className="mt-12 bg-gradient-to-r from-amber-100 to-amber-50 rounded-2xl p-8 border border-amber-200">
           <p className="text-amber-800 text-center italic text-lg">
-            "The more spiritual a person is, the more human they are."
+            {t('teachings.quote')}
           </p>
           <p className="text-amber-600 text-center text-sm mt-2">
-            - Param Guru Shri Chaturbhuj Sahai Ji Maharaj
+            {t('teachings.quoteAuthor')}
           </p>
         </div>
       </div>

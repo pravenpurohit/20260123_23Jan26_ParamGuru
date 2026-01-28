@@ -1,16 +1,19 @@
 import { Play, ExternalLink, Video, Headphones } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function Media() {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-amber-50 min-h-screen">
       <div className="bg-gradient-to-r from-amber-800 to-amber-900 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-serif font-bold text-white text-center mb-4">
-            Satsang Media
+            {t('media.pageTitle')}
           </h1>
           <p className="text-amber-200 text-center max-w-2xl mx-auto">
-            Immerse yourself in the vibration of past and live Satsang programs
+            {t('media.pageSubtitle')}
           </p>
         </div>
       </div>
@@ -23,13 +26,10 @@ export default function Media() {
                 <Play className="h-12 w-12 text-white" />
               </div>
               <h2 className="text-3xl font-serif font-bold text-white mb-4">
-                Live Satsang Telecasts
+                {t('media.liveTelecastTitle')}
               </h2>
               <p className="text-red-100 mb-6 leading-relaxed">
-                The YouTube channel continues the sacred tradition of sharing spiritual wisdom
-                following the departure of the Gurus from their physical forms. Watch live
-                telecasts of satsang programs from various locations and access an archive
-                of past recordings.
+                {t('media.liveTelecastDesc')}
               </p>
               <a
                 href="https://www.youtube.com/@ramashramsatsangch"
@@ -38,7 +38,7 @@ export default function Media() {
                 className="inline-flex items-center self-start px-6 py-3 bg-white text-red-700 rounded-lg hover:bg-red-50 transition-colors font-semibold shadow-lg"
               >
                 <Play className="mr-2 h-5 w-5" />
-                Visit YouTube Channel
+                {t('media.visitYoutube')}
                 <ExternalLink className="ml-2 h-4 w-4" />
               </a>
             </div>
@@ -48,28 +48,28 @@ export default function Media() {
               </h3>
               <div className="space-y-4 text-amber-700">
                 <p>
-                  The official YouTube channel of Ramashram Satsang Ch. features:
+                  {t('media.channelFeatures')}
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-start">
                     <Video className="h-5 w-5 text-amber-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Live telecasts of satsang programs</span>
+                    <span>{t('media.featureLive')}</span>
                   </li>
                   <li className="flex items-start">
                     <Video className="h-5 w-5 text-amber-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Recordings from Bhandaras and special occasions</span>
+                    <span>{t('media.featureBhandara')}</span>
                   </li>
                   <li className="flex items-start">
                     <Video className="h-5 w-5 text-amber-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Pravachans from various centers</span>
+                    <span>{t('media.featurePravachans')}</span>
                   </li>
                   <li className="flex items-start">
                     <Video className="h-5 w-5 text-amber-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Spiritual discourses and meditation guidance</span>
+                    <span>{t('media.featureDiscourses')}</span>
                   </li>
                 </ul>
                 <p className="text-sm text-amber-600 italic mt-4">
-                  Subscribe to the channel to receive notifications for live programs.
+                  {t('media.subscribeNote')}
                 </p>
               </div>
             </div>
@@ -81,13 +81,11 @@ export default function Media() {
             <div className="flex items-center mb-4">
               <Headphones className="h-8 w-8 text-amber-600 mr-3" />
               <h3 className="text-xl font-serif font-semibold text-amber-900">
-                Audio Pravachans
+                {t('media.audioPravachans')}
               </h3>
             </div>
             <p className="text-amber-700 mb-6">
-              Access the sacred discourses (pravachans) of our Gurus in audio format.
-              These recordings preserve the voice and wisdom of the Masters for
-              future generations.
+              {t('media.audioPravachansDesc')}
             </p>
             <div className="space-y-3">
               <Link
@@ -95,18 +93,18 @@ export default function Media() {
                 className="block p-4 bg-amber-50 rounded-lg hover:bg-amber-100 transition-colors"
               >
                 <h4 className="font-medium text-amber-900">
-                  Param Guru Shri Satya Prakash Ji Maharaj
+                  {t('home.satyaPrakashJiName')}
                 </h4>
-                <p className="text-sm text-amber-600">90+ recordings from 1984-2002</p>
+                <p className="text-sm text-amber-600">{t('media.satyaPrakashJiRecordings')}</p>
               </Link>
               <Link
                 to="/sharda-charan-ji"
                 className="block p-4 bg-amber-50 rounded-lg hover:bg-amber-100 transition-colors"
               >
                 <h4 className="font-medium text-amber-900">
-                  Param Guru Shri Sharda Charan Ji Maharaj
+                  {t('home.shardaCharanJiName')}
                 </h4>
-                <p className="text-sm text-amber-600">20+ recordings from 1979-1981</p>
+                <p className="text-sm text-amber-600">{t('media.shardaCharanJiRecordings')}</p>
               </Link>
             </div>
           </div>
@@ -115,29 +113,28 @@ export default function Media() {
             <div className="flex items-center mb-4">
               <Video className="h-8 w-8 text-amber-600 mr-3" />
               <h3 className="text-xl font-serif font-semibold text-amber-900">
-                Video Archive
+                {t('media.videoArchive')}
               </h3>
             </div>
             <p className="text-amber-700 mb-6">
-              The YouTube channel serves as the video archive for Satsang programs.
-              Visit the channel to browse:
+              {t('media.videoArchiveDesc')}
             </p>
             <ul className="space-y-2 text-amber-700">
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
-                Recent Bhandara recordings
+                {t('media.recentBhandara')}
               </li>
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
-                Guru Purnima celebrations
+                {t('media.guruPurnimaCelebrations')}
               </li>
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
-                Punya Tithi (anniversary) programs
+                {t('media.punyaTithiPrograms')}
               </li>
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
-                Regular satsang sessions
+                {t('media.regularSatsang')}
               </li>
             </ul>
             <a
@@ -146,7 +143,7 @@ export default function Media() {
               rel="noopener noreferrer"
               className="inline-flex items-center mt-6 text-amber-700 hover:text-amber-900 font-medium"
             >
-              Browse All Videos
+              {t('media.browseAllVideos')}
               <ExternalLink className="ml-2 h-4 w-4" />
             </a>
           </div>
@@ -154,21 +151,19 @@ export default function Media() {
 
         <div className="bg-gradient-to-r from-amber-100 to-amber-50 rounded-2xl p-8 border border-amber-200">
           <h2 className="text-2xl font-serif font-bold text-amber-900 mb-4">
-            How to Use the Audio Pravachans
+            {t('media.howToUseTitle')}
           </h2>
           <div className="prose prose-amber max-w-none text-amber-800">
             <p>
-              The audio pravachans are stored on Google Drive for universal access.
-              When you click on a pravachan link, it will open in Google Drive where you can:
+              {t('media.howToUseText')}
             </p>
             <ul>
-              <li><strong>Play directly</strong> - Listen in your browser without downloading</li>
-              <li><strong>Download</strong> - Save to your device for offline listening</li>
-              <li><strong>Share</strong> - Share the link with other seekers</li>
+              <li><strong>{t('media.playDirectly')}</strong></li>
+              <li><strong>{t('media.download')}</strong></li>
+              <li><strong>{t('media.share')}</strong></li>
             </ul>
             <p className="italic">
-              These recordings are sacred treasures. Listen with receptivity and devotion,
-              preferably in a quiet environment conducive to contemplation.
+              {t('media.sacredNote')}
             </p>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ExternalLink, Calendar, MapPin, ChevronDown, ChevronUp } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import type { Pravachan } from '../data/pravachans';
 
 interface PravachanListProps {
@@ -10,6 +11,7 @@ interface PravachanListProps {
 export default function PravachanList({ pravachans, title }: PravachanListProps) {
   const [expandedYear, setExpandedYear] = useState<number | null>(null);
   const [showAll, setShowAll] = useState(false);
+  const { t } = useTranslation();
 
   const years = [...new Set(pravachans.map(p => p.year))].sort((a, b) => b - a);
   const pravachansByYear = years.reduce((acc, year) => {
@@ -23,7 +25,7 @@ export default function PravachanList({ pravachans, title }: PravachanListProps)
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-amber-700 to-amber-800 px-6 py-4">
         <h3 className="text-xl font-serif font-semibold text-white">{title}</h3>
-        <p className="text-amber-100 text-sm mt-1">{pravachans.length} recordings available</p>
+        <p className="text-amber-100 text-sm mt-1">{pravachans.length} {t('pravachanList.recordingsAvailable')}</p>
       </div>
 
       <div className="divide-y divide-amber-100">
@@ -35,7 +37,7 @@ export default function PravachanList({ pravachans, title }: PravachanListProps)
             >
               <span className="font-semibold text-amber-900">{year}</span>
               <div className="flex items-center space-x-2">
-                <span className="text-sm text-amber-600">{pravachansByYear[year].length} recordings</span>
+                <span className="text-sm text-amber-600">{pravachansByYear[year].length} {t('pravachanList.recordings')}</span>
                 {expandedYear === year ? (
                   <ChevronUp className="h-5 w-5 text-amber-600" />
                 ) : (
@@ -84,7 +86,7 @@ export default function PravachanList({ pravachans, title }: PravachanListProps)
             onClick={() => setShowAll(!showAll)}
             className="w-full text-center text-amber-700 hover:text-amber-900 font-medium transition-colors"
           >
-            {showAll ? 'Show Less Years' : `Show All ${years.length} Years`}
+            {showAll ? t('pravachanList.showLess') : t('pravachanList.showAll', { count: years.length })}
           </button>
         </div>
       )}

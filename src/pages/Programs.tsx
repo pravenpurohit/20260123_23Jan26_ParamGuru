@@ -1,16 +1,19 @@
 import { Calendar, MapPin, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { upcomingEvents } from '../data/pravachans';
 
 export default function Programs() {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-amber-50 min-h-screen">
       <div className="bg-gradient-to-r from-amber-800 to-amber-900 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-serif font-bold text-white text-center mb-4">
-            Satsang Programs
+            {t('programs.pageTitle')}
           </h1>
           <p className="text-amber-200 text-center max-w-2xl mx-auto">
-            Bhandaras, Satsang Programs, Spiritual Meditation camps
+            {t('programs.pageSubtitle')}
           </p>
         </div>
       </div>
@@ -19,7 +22,7 @@ export default function Programs() {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-12">
           <div className="bg-gradient-to-r from-amber-700 to-amber-800 px-6 py-4">
             <h2 className="text-xl font-serif font-semibold text-white">
-              Scheduled Spiritual Meditation camps / Satsang Programs
+              {t('programs.scheduledTitle')}
             </h2>
           </div>
 
@@ -28,19 +31,19 @@ export default function Programs() {
               <thead className="bg-amber-50">
                 <tr>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-amber-900">
-                    Program Name
+                    {t('programs.tableProgram')}
                   </th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-amber-900">
-                    Dates
+                    {t('programs.tableDates')}
                   </th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-amber-900">
-                    Location
+                    {t('programs.tableLocation')}
                   </th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-amber-900">
-                    Jila
+                    {t('programs.tableJila')}
                   </th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-amber-900">
-                    State
+                    {t('programs.tableState')}
                   </th>
                 </tr>
               </thead>
@@ -111,13 +114,13 @@ export default function Programs() {
                       className="flex items-center text-amber-700 hover:text-amber-900 transition-colors"
                     >
                       <MapPin className="h-5 w-5 mr-3 text-amber-500" />
-                      <span>{event.location}, Jila {event.jila}, {event.state}</span>
+                      <span>{event.location}, {t('common.jila')} {event.jila}, {event.state}</span>
                       <ExternalLink className="h-3 w-3 ml-2 text-amber-500" />
                     </a>
                   ) : (
                     <div className="flex items-center text-amber-700">
                       <MapPin className="h-5 w-5 mr-3 text-amber-500" />
-                      <span>{event.location}, Jila {event.jila}, {event.state}</span>
+                      <span>{event.location}, {t('common.jila')} {event.jila}, {event.state}</span>
                     </div>
                   )}
                 </div>
@@ -128,24 +131,17 @@ export default function Programs() {
 
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <h2 className="text-2xl font-serif font-bold text-amber-900 mb-6">
-            About Bhandaras and Satsang Programs
+            {t('programs.aboutTitle')}
           </h2>
           <div className="prose prose-amber max-w-none text-amber-800">
             <p>
-              <strong>Bhandara</strong> is a spiritual gathering that typically spans 2-3 days,
-              featuring pravachans (discourses) and group meditation. These events provide an
-              opportunity for seekers to immerse themselves in the spiritual atmosphere and
-              receive the blessings of the lineage.
+              <strong>{t('common.bhandara')}</strong> {t('programs.bhandaraDesc')}
             </p>
             <p>
-              <strong>Punya Tithi</strong> refers to the death anniversary of a Guru, observed with
-              special reverence. Devotees gather to honor the departed Master and receive
-              continued spiritual guidance through the living tradition.
+              <strong>{t('common.punyaTithi')}</strong> {t('programs.punyaTithiDesc')}
             </p>
             <p>
-              <strong>Guru Poornima</strong> is the sacred day dedicated to honoring the Guru,
-              celebrated on the full moon day in the Hindu month of Ashadha (July). It is one
-              of the most important occasions in the spiritual calendar.
+              <strong>{t('common.guruPurnima')}</strong> {t('programs.guruPurnimaDesc')}
             </p>
           </div>
         </div>

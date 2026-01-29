@@ -1,7 +1,7 @@
-//Gemini try 2
+//Gemini try 3
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { X, ChevronDown, Home } from 'lucide-react'; // Added Home icon for mobile convenience
+import { X, ChevronDown, Menu } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Header() {
@@ -28,41 +28,35 @@ export default function Header() {
 
   return (
     <header className="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900 shadow-lg sticky top-0 z-50">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative" aria-label="Top">
+      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative h-20" aria-label="Top">
         
-        {/* Main Header Container */}
-        <div className="flex h-20 items-center justify-between">
+        {/* --- GRID LAYOUT: LEFT | CENTER | RIGHT --- */}
+        <div className="grid grid-cols-3 items-center h-full w-full">
 
-          {/* 1. LEFT: Empty placeholder or Home Icon (keeps layout balanced) */}
-          <div className="flex-1 flex justify-start">
-             {/* Optional: Small Home Icon on far left for easy access, visible mainly on mobile */}
-            <Link to="/" className="lg:hidden text-amber-200 hover:text-white">
-               <Home className="h-6 w-6" />
+          {/* 1. LEFT COLUMN: Empty (or Logo if needed later) */}
+          <div className="flex justify-start">
+             {/* Keeps the grid balanced. Can add a small logo here if desired. */}
+          </div>
+
+          {/* 2. CENTER COLUMN: Title (Absolute Centered) */}
+          {/* We use absolute positioning here to ensure it is DEAD CENTER relative to the screen, ignoring the side columns */}
+          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-auto text-center z-10">
+            <Link to="/" className="flex flex-col items-center group">
+              <h1 className="text-xl sm:text-2xl font-serif font-bold tracking-wide text-amber-100 drop-shadow-md group-hover:text-white transition-colors">
+                {t('header.title')}
+              </h1>
+              <p className="text-[10px] sm:text-xs text-amber-200/80 font-light tracking-widest uppercase group-hover:text-amber-100 transition-colors">
+                {t('header.subtitle')}
+              </p>
             </Link>
           </div>
 
-          {/* 2. CENTER: Absolute Positioned Title (Param Guru) */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full text-center pointer-events-none">
-            {/* pointer-events-auto added to Link so you can still click it */}
-            <Link to="/" className="inline-block pointer-events-auto">
-              <div className="text-amber-100 flex flex-col items-center">
-                <h1 className="text-lg sm:text-xl lg:text-2xl font-serif font-bold tracking-wide text-center whitespace-nowrap drop-shadow-md">
-                  {t('header.title')}
-                </h1>
-                <p className="text-xs text-amber-200 font-light hidden sm:block text-center tracking-wider">
-                  {t('header.subtitle')}
-                </p>
-              </div>
-            </Link>
-          </div>
-
-          {/* 3. RIGHT: Navigation & Language Toggle */}
-          <div className="flex-1 flex justify-end items-center z-20">
+          {/* 3. RIGHT COLUMN: Navigation & Actions */}
+          <div className="flex justify-end items-center z-20">
             
-            {/* DESKTOP VIEW: Nav Links + Lang Switch */}
-            <div className="hidden lg:flex lg:items-center lg:gap-6">
-              
-              {/* Nav Links */}
+            {/* === DESKTOP VIEW (Visible ONLY on XL screens 1280px+) === */}
+            {/* We hide this on LG screens because 7 links + Title is too wide for standard laptops */}
+            <div className="hidden xl:flex items-center gap-6">
               <div className="flex items-center space-x-1">
                 {navigation.map((item) => (
                   <Link
@@ -70,8 +64,8 @@ export default function Header() {
                     to={item.href}
                     className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 whitespace-nowrap ${
                       location.pathname === item.href
-                        ? 'bg-amber-700 text-white shadow-sm'
-                        : 'text-amber-100 hover:bg-amber-700 hover:text-white'
+                        ? 'bg-amber-700/80 text-white shadow-sm'
+                        : 'text-amber-100 hover:bg-amber-700/50 hover:text-white'
                     }`}
                   >
                     {item.name}
@@ -79,68 +73,76 @@ export default function Header() {
                 ))}
               </div>
 
-              {/* Desktop Language Switcher */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-1 border border-amber-300/30 flex">
+              {/* Language Switcher (Desktop) */}
+              <div className="flex bg-amber-950/30 rounded-lg p-1 border border-amber-400/20">
                 <button
                   onClick={() => setLanguage('en')}
-                  className={`px-3 py-1 text-sm font-bold rounded-md transition-colors ${
-                    isEnglish ? 'bg-amber-100 text-amber-900' : 'text-amber-200 hover:text-white'
+                  className={`px-3 py-1 text-xs font-bold rounded transition-all ${
+                    isEnglish ? 'bg-amber-100 text-amber-900 shadow-sm' : 'text-amber-300 hover:text-white'
                   }`}
                 >
-                  EN
+                  ENG
                 </button>
-                <div className="w-[1px] bg-amber-300/30 mx-1 my-1"></div>
                 <button
                   onClick={() => setLanguage('hi')}
-                  className={`px-3 py-1 text-sm font-bold rounded-md transition-colors ${
-                    isHindi ? 'bg-amber-100 text-amber-900' : 'text-amber-200 hover:text-white'
+                  className={`px-3 py-1 text-xs font-bold rounded transition-all ${
+                    isHindi ? 'bg-amber-100 text-amber-900 shadow-sm' : 'text-amber-300 hover:text-white'
                   }`}
                 >
-                  HI
+                  हिंदी
                 </button>
               </div>
             </div>
 
-            {/* MOBILE VIEW: Burger Menu + Compact Lang */}
-            <div className="flex items-center gap-3 lg:hidden">
-              {/* Compact Mobile Lang Switch */}
-              <button 
+            {/* === MOBILE/TABLET/LAPTOP VIEW (Visible on screens < XL) === */}
+            {/* This ensures the menu button is visible on your 16 inch mac if the text is too long */}
+            <div className="flex xl:hidden items-center gap-4">
+               {/* Compact Language Toggle */}
+               <button 
                 onClick={() => setLanguage(isEnglish ? 'hi' : 'en')}
-                className="text-amber-100 font-bold text-sm border border-amber-400/50 rounded px-2 py-1"
+                className="text-amber-100 text-sm font-semibold border border-amber-400/30 rounded px-2 py-1 hover:bg-amber-700/50 transition-colors"
               >
                 {isEnglish ? 'HI' : 'EN'}
               </button>
 
+              {/* Hamburger Button */}
               <button
                 type="button"
-                className="text-amber-100 hover:text-white p-1"
+                className="text-amber-100 hover:text-white p-2 rounded-md hover:bg-amber-800/50 focus:outline-none transition-colors"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X className="h-7 w-7" /> : <ChevronDown className="h-7 w-7" />}
+                 {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
             </div>
 
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
+        {/* === EXPANDABLE MENU (For Mobile, Tablet & Smaller Laptops) === */}
         {mobileMenuOpen && (
-          <div className="lg:hidden relative z-50 pb-4 border-t border-amber-700/50 pt-2 animate-in slide-in-from-top-2 fade-in duration-200">
-            <div className="flex flex-col space-y-1">
+          <div className="xl:hidden absolute top-20 left-0 w-full bg-gradient-to-b from-amber-900 to-amber-950 shadow-xl border-t border-amber-700/50">
+            <div className="flex flex-col p-4 space-y-2 max-h-[calc(100vh-5rem)] overflow-y-auto">
               {navigation.map((item) => (
                 <Link
                   key={item.href}
                   to={item.href}
-                  className={`block px-4 py-3 text-base font-medium rounded-md mx-2 ${
+                  className={`block px-4 py-3 text-base font-medium rounded-lg transition-colors ${
                     location.pathname === item.href
                       ? 'bg-amber-700 text-white'
-                      : 'text-amber-100 hover:bg-amber-700/50'
+                      : 'text-amber-100 hover:bg-amber-800 hover:text-white'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
+              {/* Mobile Menu Footer: Extra Language Controls if needed */}
+              <div className="pt-4 mt-2 border-t border-amber-800 flex justify-center gap-4">
+                 <span className="text-amber-300 text-sm font-light">Language:</span>
+                 <button onClick={() => setLanguage('en')} className={`text-sm font-bold ${isEnglish ? 'text-white underline' : 'text-amber-400'}`}>English</button>
+                 <button onClick={() => setLanguage('hi')} className={`text-sm font-bold ${isHindi ? 'text-white underline' : 'text-amber-400'}`}>हिंदी</button>
+              </div>
             </div>
           </div>
         )}

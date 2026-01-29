@@ -30,12 +30,43 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between py-3 gap-3">
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center">
-              <div className="text-amber-100">
-                <h1 className="text-lg sm:text-xl font-serif font-bold tracking-wide text-center">{t('header.title')}</h1>
-                <p className="text-xs text-amber-200 font-light hidden sm:block text-center">{t('header.subtitle')}</p>
+            <div className="flex items-center gap-10">
+              <Link to="/" className="flex items-center">
+                <div className="text-amber-100">
+                  <h1 className="text-lg sm:text-xl font-serif font-bold tracking-wide text-center">{t('header.title')}</h1>
+                  <p className="text-xs text-amber-200 font-light hidden sm:block text-center">{t('header.subtitle')}</p>
+                </div>
+              </Link>
+
+              <div className="hidden lg:inline-flex bg-white rounded-lg p-1 shadow-lg border-2 border-amber-300">
+                <button
+                  onClick={() => setLanguage('en')}
+                  type="button"
+                  className={`px-4 py-2 text-sm font-bold rounded-md transition-all duration-200 ${
+                    isEnglish
+                      ? 'bg-amber-600 text-white shadow-md'
+                      : 'bg-transparent text-amber-900 hover:bg-amber-100'
+                  }`}
+                  aria-label="Switch to English"
+                  aria-pressed={isEnglish}
+                >
+                  English
+                </button>
+                <button
+                  onClick={() => setLanguage('hi')}
+                  type="button"
+                  className={`px-4 py-2 text-sm font-bold rounded-md transition-all duration-200 ${
+                    isHindi
+                      ? 'bg-amber-600 text-white shadow-md'
+                      : 'bg-transparent text-amber-900 hover:bg-amber-100'
+                  }`}
+                  aria-label="Switch to Hindi"
+                  aria-pressed={isHindi}
+                >
+                  हिंदी
+                </button>
               </div>
-            </Link>
+            </div>
 
             <div className="flex items-center gap-3 lg:hidden">
               <div className="inline-flex bg-white rounded-lg p-1 shadow-lg border-2 border-amber-300">
@@ -94,35 +125,6 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-            </div>
-
-            <div className="inline-flex bg-white rounded-lg p-1 shadow-lg border-2 border-amber-300">
-              <button
-                onClick={() => setLanguage('en')}
-                type="button"
-                className={`px-4 py-2 text-sm font-bold rounded-md transition-all duration-200 ${
-                  isEnglish
-                    ? 'bg-amber-600 text-white shadow-md'
-                    : 'bg-transparent text-amber-900 hover:bg-amber-100'
-                }`}
-                aria-label="Switch to English"
-                aria-pressed={isEnglish}
-              >
-                English
-              </button>
-              <button
-                onClick={() => setLanguage('hi')}
-                type="button"
-                className={`px-4 py-2 text-sm font-bold rounded-md transition-all duration-200 ${
-                  isHindi
-                    ? 'bg-amber-600 text-white shadow-md'
-                    : 'bg-transparent text-amber-900 hover:bg-amber-100'
-                }`}
-                aria-label="Switch to Hindi"
-                aria-pressed={isHindi}
-              >
-                हिंदी
-              </button>
             </div>
           </div>
         </div>
